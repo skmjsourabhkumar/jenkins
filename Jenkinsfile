@@ -2,13 +2,13 @@ pipeline {
     agent any
 
     environment {
-        NODE_HOME = "/usr/local/node"
+        NODE_ENV = 'production'
     }
 
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/skmjsourabhkumar/employee-management-react.git'
+                git credentialsId: 'github-pat', url: 'https://github.com/skmjsourabhkumar/employee-management-react.git'
             }
         }
 
@@ -26,27 +26,27 @@ pipeline {
 
         stage('Run Tests') {
             steps {
-                sh 'npm test -- --watchAll=false'
+                sh 'npm test'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Deploy logic goes here'
+                echo 'Deploying application...'
+                // Add your deployment script/command here
             }
         }
     }
 
     post {
-        always {
-            cleanWs()
-        }
         success {
             echo 'Build succeeded!'
         }
         failure {
             echo 'Build failed!'
         }
+        always {
+            cleanWs()
+        }
     }
 }
-
