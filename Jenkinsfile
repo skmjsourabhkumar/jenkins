@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    name 'Employee-Management-React-App'  // Name for the pipeline
 
     environment {
         NODE_HOME = "/usr/local/node"
@@ -9,39 +8,31 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/skmjsourabhkumar/jenkins.git'
+                git 'https://github.com/skmjsourabhkumar/employee-management-react.git'
             }
         }
 
         stage('Install Dependencies') {
             steps {
-                script {
-                    sh 'npm install'
-                }
+                sh 'npm install'
             }
         }
 
         stage('Build App') {
             steps {
-                script {
-                    sh 'npm run build'
-                }
+                sh 'npm run build'
             }
         }
 
         stage('Run Tests') {
             steps {
-                script {
-                    sh 'npm test -- --watchAll=false'
-                }
+                sh 'npm test -- --watchAll=false'
             }
         }
 
         stage('Deploy') {
             steps {
-                script {
-                    echo 'Deployment logic here'
-                }
+                echo 'Deploy logic goes here'
             }
         }
     }
@@ -58,3 +49,4 @@ pipeline {
         }
     }
 }
+
