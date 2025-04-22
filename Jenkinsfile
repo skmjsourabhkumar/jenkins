@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git credentialsId: 'github-pat', url: 'https://github.com/skmjsourabhkumar/employee-management-react.git'
+                git 'https://github.com/skmjsourabhkumar/jenkins.git'
             }
         }
 
