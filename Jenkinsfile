@@ -35,14 +35,14 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                    bat 'docker build -t employee-management-container .'
+                    sh 'docker build -t employee-management-container .'
                 
             }
         }
 
         stage('Docker Run') {
             steps {
-                    bat 'docker-compose -f docker-compose.yml up -d'
+                    sh 'docker-compose -f docker-compose.yml up -d'
                 
             }
         }
