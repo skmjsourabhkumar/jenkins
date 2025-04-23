@@ -6,7 +6,7 @@ services:
     image: node:18
     working_dir: /app
     volumes:
-      - /home/jenkins/workspace/project:/app
+      - .:/app
       - /app/node_modules
     ports:
       - "3000:3000"
