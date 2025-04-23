@@ -33,6 +33,21 @@ pipeline {
                 sh 'npm test'
             }
         }
+        stage('Docker Build') {
+            steps {
+                dir('Projects/JournelApp') {
+                    bat 'docker build -t journal-app .'
+                }
+            }
+        }
+
+        stage('Docker Run') {
+            steps {
+                dir('Projects/JournelApp') {
+                    bat 'docker-compose -f docker-compose.yml up -d'
+                }
+            }
+        }
 
         stage('Deploy') {
             steps {
