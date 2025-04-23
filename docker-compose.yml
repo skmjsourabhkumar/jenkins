@@ -6,9 +6,8 @@ services:
     image: node:18
     working_dir: /app
     volumes:
-      # Assuming Jenkins workspace is writable in this directory
       - /home/jenkins/workspace/project:/app
-      - /app/node_modules  # Persist node_modules in container to avoid overwriting on every restart
+      - /app/node_modules
     ports:
       - "3000:3000"
     command: sh -c "npm install && npm start"
