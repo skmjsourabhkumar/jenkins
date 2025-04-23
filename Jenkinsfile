@@ -35,7 +35,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                dir('Projects/JournelApp') {
+                dir('/') {
                     bat 'docker build -t journal-app .'
                 }
             }
@@ -43,7 +43,7 @@ pipeline {
 
         stage('Docker Run') {
             steps {
-                dir('Projects/JournelApp') {
+                dir('/') {
                     bat 'docker-compose -f docker-compose.yml up -d'
                 }
             }
