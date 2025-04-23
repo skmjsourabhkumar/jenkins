@@ -36,7 +36,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 dir('/') {
-                    bat 'docker build -t journal-app .'
+                    bat 'docker build -t employee-management-container .'
                 }
             }
         }
