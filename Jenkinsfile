@@ -2,8 +2,9 @@ pipeline {
     agent any
 
     triggers {
-        cron('H/2 * * * *') // runs every 15 minutes
+        githubPush() // Triggers build on GitHub push
     }
+    
     environment {
         NODE_ENV = 'production'
     }
