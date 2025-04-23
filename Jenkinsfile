@@ -35,7 +35,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                dir('/') {
+                dir('"${env.WORKSPACE}"') {
                     bat 'docker build -t employee-management-container .'
                 }
             }
@@ -43,7 +43,7 @@ pipeline {
 
         stage('Docker Run') {
             steps {
-                dir('/') {
+                dir('"${env.WORKSPACE}"') {
                     bat 'docker-compose -f docker-compose.yml up -d'
                 }
             }
