@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+    triggers {
+        cron('H/15 * * * *') // runs every 15 minutes
+    }
     environment {
         NODE_ENV = 'production'
     }
