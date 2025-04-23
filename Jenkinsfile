@@ -33,12 +33,12 @@ pipeline {
                 sh 'npm test'
             }
         }
-//         stage('Docker Build') {
-//             steps {
-//                     sh 'docker build -t employee-management-container .'
+        stage('Docker Build') {
+            steps {
+                    sh 'docker build -t employee-management-container .'
                 
-//             }
-//         }
+            }
+        }
 
 //         stage('Docker Run') {
 //     steps {
@@ -47,25 +47,25 @@ pipeline {
 //         }
 //     }
 // }
-        stage('Docker Build') {
-            steps {
-                script {
-                    // Build the Docker image with a tag
-                    sh 'docker build -t employee-management-container .'
-                }
-            }
-        }
+        // stage('Docker Build') {
+        //     steps {
+        //         script {
+        //             // Build the Docker image with a tag
+        //             sh 'docker build -t employee-management-container .'
+        //         }
+        //     }
+        // }
 
-        stage('Docker Run') {
-            steps {
-                script {
-                    // Stop and remove the container if it exists to avoid conflict
-                    sh 'docker rm -f employee-management-container || true'
-                    // Start the Docker container with docker-compose
-                    sh 'docker-compose -f docker-compose.yml up -d'
-                }
-            }
-        }
+        // stage('Docker Run') {
+        //     steps {
+        //         script {
+        //             // Stop and remove the container if it exists to avoid conflict
+        //             sh 'docker rm -f employee-management-container || true'
+        //             // Start the Docker container with docker-compose
+        //             sh 'docker-compose -f docker-compose.yml up -d'
+        //         }
+        //     }
+        // }
     
 
         stage('Deploy') {
