@@ -7,7 +7,7 @@ const EmployeeManagement = () => {
       id: 1,
       name: "Ravi Kumar",
       leave: 5,
-      salary: "₹30,000",
+      salary: "₹30,0000",
       attendance: "Present",
     },
     {
