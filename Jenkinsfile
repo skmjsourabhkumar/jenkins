@@ -40,12 +40,12 @@ pipeline {
             }
         }
 
-        stage('Docker Run') {
-            steps {
-                    sh 'docker-compose -f docker-compose.yml up -d'
+        // stage('Docker Run') {
+        //     steps {
+        //             sh 'docker-compose -f docker-compose.yml up -d'
                 
-            }
-        }
+        //     }
+        // }
 
         stage('Deploy') {
             steps {
