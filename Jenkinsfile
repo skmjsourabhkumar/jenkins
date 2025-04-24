@@ -47,14 +47,14 @@ pipeline {
 //         }
 //     }
 // }
-        // stage('Docker Build') {
-        //     steps {
-        //         script {
-        //             // Build the Docker image with a tag
-        //             sh 'docker build -t employee-management-container .'
-        //         }
-        //     }
-        // }
+        stage('Docker Build') {
+            steps {
+                script {
+                    // Build the Docker image with a tag
+                    sh 'docker build -t employee-management-container .'
+                }
+            }
+        }
 
         // stage('Docker Run') {
         //     steps {
@@ -66,6 +66,14 @@ pipeline {
         //         }
         //     }
         // }
+        stage('Docker Run') {
+    steps {
+        script {
+            sh 'docker rm -f employee-management-container || true'
+            sh 'docker run -d -p 3000:80 --name employee-management-container employee-management-frontend'
+        }
+    }
+}
     
 
         stage('Deploy') {
