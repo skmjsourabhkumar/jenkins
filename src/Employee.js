@@ -4,6 +4,7 @@ import "./style.css";
 const EmployeeManagement = () => {
   const [employees, setEmployees] = useState([
     {
+      
       id: 1,
       name: "Ravi Kumar",
       leave: 5,
